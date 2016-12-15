@@ -1,0 +1,65 @@
+package com.company;
+
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class Main {
+    public Main() {
+    }
+
+    public static void main(String[] args) {
+        String Nombre = "";
+        boolean resp = false;
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+
+        try {
+            fichero = new FileWriter("c:/prg/att.txt");
+            pw = new PrintWriter(fichero);
+            Hashtable e2 = new Hashtable();
+
+            int resp1;
+            do {
+                double velocidades = 0.0D;
+                Integer total = Integer.valueOf(0);
+                Scanner entradaEscaner = new Scanner(System.in);
+                System.out.println("Introduzca su Nombre\n");
+                Nombre = entradaEscaner.nextLine();
+                System.out.println("Introduzca su Velocidad\n");
+                velocidades = (double)Integer.parseInt(entradaEscaner.nextLine());
+                if(velocidades > 60.0D) {
+                    total = Integer.valueOf(total.intValue() + 20);
+                }
+
+                if(velocidades > 120.0D) {
+                    total = Integer.valueOf(total.intValue() + 50);
+                }
+
+                if(velocidades > 160.0D) {
+                    total = Integer.valueOf(total.intValue() + 120);
+                }
+
+                e2.put(Nombre, total);
+                pw.println(" Velocidad : " + velocidades);
+                System.out.println("Deseas Contunuar   1/SI 0/NO            ");
+                resp1 = Integer.parseInt(entradaEscaner.nextLine());
+            } while(resp1 == 1);
+
+            pw.println(e2);
+        } catch (Exception var18) {
+            var18.printStackTrace();
+        } finally {
+            try {
+                if(null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception var17) {
+                var17.printStackTrace();
+            }
+
+        }
+
+    }
+}
