@@ -1,0 +1,60 @@
+/**
+ * Provee las clases necesarias para 
+ * crear una cuenta de consumo de electricidad
+ * en la empresa ENSA.
+ */
+
+package ensa;
+
+/**
+ * Esta es la clse para la creacion de la cienta ENSA
+ * @author Gabriela Montenegro
+ * @version 1.0
+ */
+public class Cuenta {
+    /**
+     * Este constructor inicializa la cuenta recien creada.
+     */
+    private String nombre;
+    private String numero_cuenta;
+    private double saldo;
+    private double consumo_mensual;
+
+    /**
+     * Este constructor inicializa la cuenta recien creada.
+     * @param n este parametro indica el nombre del dueño de la cuenta
+     * @param nc este parametro indica el numero de la cuenta
+     */
+    public Cuenta(String n, String nc) { //para no usar get set
+        this.nombre = n;
+        this.numero_cuenta = nc;
+        this.saldo = 0.0;
+        this.consumo_mensual = 0.0;
+    }
+
+    /**
+     * Este metodo se encarga de cargar la informacion del cielnte en una variable.
+     * @return esta cadena reprsenta la informacion del cliente
+     */
+    public String mostrar() {
+        String mensaje= "INFORMACION DEL CLIENTE";
+        mensaje +="Nombre: " + this.nombre;
+        mensaje +="Cuenta:  " + this.numero_cuenta;
+        mensaje +="Saldo: " + this.saldo;
+        mensaje +="Consumo " + this.consumo_mensual;
+        return mensaje;
+    }
+
+    public double pagar(double pago) {
+        this.saldo -= pago; //llamar el saldo que quedo en el otro
+        return this.saldo;
+
+    }
+
+    public double calcular(double consumo) {
+        this.consumo_mensual = consumo;
+        this.saldo = consumo_mensual * 0.057;
+        return this.saldo;
+    }
+
+}

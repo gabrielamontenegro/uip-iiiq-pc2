@@ -1,0 +1,30 @@
+h<cer un programa que lea por teclado velocidades si la velocidad excede a 
+60 tiene multa de 20 si la velocidad excede 120tiene una multa de 150 las 
+multas no son excluyentes y son acumuladas.guarde las velocidades en un archivo
+llamado ATT.TXT. GUADE EL PAR NOMBRE TOTAL MULTA EN UN DICCIONARIO AL CERRAR 
+EL PROGRAMA EL DICCIONARIO SE GUARDA EL ATT.TXT 
+
+package com.company;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.BufferedReader;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        String nombre;
+        double velocidad;
+        int a;
+        BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Bienvenido favor introduzca nombre: ");
+        nombre = teclado.readLine();
+        System.out.print("Favor introduzca velocidad: ");
+        velocidad = Integer.parseInt(teclado.readLine());
+        if(velocidad <= 60) {
+            System.out.println("No se excedio en la velocidad");
+        }else if(velocidad>60 && velocidad<=120){
+            a=20;
+            System.out.println("Su multa es de = "+ a + " dolares.");
+        }
+        System.out.println("Su nombre es " + nombre + " y su velocidad es " + velocidad );
+    }
+}
