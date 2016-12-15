@@ -1,0 +1,33 @@
+package com.company;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+    public static void main(String[] args) {
+        double saldo = 0.0;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("saldo inicial: ");
+        try {
+            saldo = Double.parseDouble(br.readLine());
+        } catch (IOException e) {
+
+            System.out.println("dato invalido");
+        }
+
+        Cuenta c1 = new Cuenta ();
+        c1.setBalance(saldo);
+        System.out.println("El saldo inicial es: " + c1.getBalance());
+        c1.depositar(50);
+        System.out.println("Usted deposito, Tiene: " + c1.getBalance());
+        c1.retirar(75);
+        System.out.println("Usted retiro, Tiene: " + c1.getBalance());
+        c1.depositar(150);
+        System.out.println("El saldo final es de: " + c1.getBalance());
+
+
+    }
+}
